@@ -7,14 +7,19 @@ import (
 )
 
 func main() {
-	url := ""
+	url := "https://api.github.com"
 
 	client := http.Client{}
-	response, err := client.Get(url)
+
+	request, err := http.NewRequest("GET", url, nil)
+	request.Header.Set("Accept", "application/xml")
+
+	response, err := client.Do(request)
 	if err != nil {
 		panic(err)
 	}
 
+	defer response.Body.Close()
 	bytes, err := io.ReadAll(response.Body)
 	if err != nil {
 		panic(err)
