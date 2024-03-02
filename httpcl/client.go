@@ -1,13 +1,15 @@
 package httpcl
 
+type httpClient struct {}
+
 type HttpClient interface {}
 
-func Get() {}
+func Get(c *httpClient) {}
 
-func Post() {}
+func Post(c *httpClient) {}
 
-func Put() {}
+func Put(c *httpClient) {}
 
-func Patch() {}
+func Patch(c *httpClient) {}
 
-func Delete() {}
+func Delete(c *httpClient) {}
