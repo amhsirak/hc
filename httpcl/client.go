@@ -27,4 +27,6 @@ func (c *httpClient) Patch (url string, headers http.Header) (*http.Response, er
 	return c.do(http.MethodPatch, url, headers, nil)
 } 
 
-func Delete(c *httpClient) {}
+func (c *httpClient) Delete(url string, headers http.Header) (*http.Response, error) {
+	return c.do(http.MethodDelete, url, headers, nil)
+}
