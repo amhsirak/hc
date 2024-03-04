@@ -19,11 +19,11 @@ func (c *httpClient) Post (url string, headers http.Header, body interface{}) (*
 	return c.do(http.MethodPost, url, headers, nil)
 }
 
-func (c *httpClient) Put (url string, headers http.Header) (*http.Response, error, body interface{}) {
+func (c *httpClient) Put (url string, headers http.Header, body interface{}) (*http.Response, error) {
 	return c.do(http.MethodPut, url, headers, nil)
 }
 
-func (c *httpClient) Patch (url string, headers http.Header) (*http.Response, error, body interface{}) {
+func (c *httpClient) Patch (url string, headers http.Header, , body interface{}) (*http.Response, error) {
 	return c.do(http.MethodPatch, url, headers, nil)
 } 
 
