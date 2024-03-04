@@ -10,7 +10,7 @@ func (c *httpClient) do(method string, url string, headers http.Header, body int
 
 	request, err := http.NewRequest(method, url, nil)
 	if err != nil {
-		return nil, errors.New("failed to create a new")
+		return nil, errors.New("failed to create a new request")
 	}
 
 	return client.Do(request)
