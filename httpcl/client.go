@@ -15,15 +15,15 @@ func (c *httpClient) Get(url string, headers http.Header) (*http.Response, error
 	return c.do(http.MethodGet, url, headers, nil)
 }
 
-func (c *httpClient) Post (url string, headers http.Header) (*http.Response, error) {
+func (c *httpClient) Post (url string, headers http.Header, body interface{}) (*http.Response, error) {
 	return c.do(http.MethodPost, url, headers, nil)
 }
 
-func (c *httpClient) Put (url string, headers http.Header) (*http.Response, error) {
+func (c *httpClient) Put (url string, headers http.Header) (*http.Response, error, body interface{}) {
 	return c.do(http.MethodPut, url, headers, nil)
 }
 
-func (c *httpClient) Patch (url string, headers http.Header) (*http.Response, error) {
+func (c *httpClient) Patch (url string, headers http.Header) (*http.Response, error, body interface{}) {
 	return c.do(http.MethodPatch, url, headers, nil)
 } 
 
