@@ -19,7 +19,9 @@ func (c *httpClient) Post (url string, headers http.Header) (*http.Response, err
 	return c.do(http.MethodPost, url, headers, nil)
 }
 
-func Put(c *httpClient) {}
+func (c *httpClient) Put (url string, headers http.Header) (*http.Response, error) {
+	return c.do(http.MethodPut, url, headers, nil)
+}
 
 func Patch(c *httpClient) {}
 
