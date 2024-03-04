@@ -23,7 +23,7 @@ func (c *httpClient) Put (url string, headers http.Header, body interface{}) (*h
 	return c.do(http.MethodPut, url, headers, nil)
 }
 
-func (c *httpClient) Patch (url string, headers http.Header, , body interface{}) (*http.Response, error) {
+func (c *httpClient) Patch (url string, headers http.Header, body interface{}) (*http.Response, error) {
 	return c.do(http.MethodPatch, url, headers, nil)
 } 
 
