@@ -12,7 +12,7 @@ func New() HttpClient {
 type HttpClient interface{}
 
 func (c *httpClient) Get(url string, headers http.Header) (*http.Response, error) {
-	return c.do(method: "GET", url, headers, nil)
+	return c.do(http.MethodGet, url, headers, nil)
 }
 
 func Post(c *httpClient) {}
