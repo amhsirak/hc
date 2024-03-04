@@ -1,10 +1,19 @@
 package httpcl
 
-type httpClient struct {}
+import "net/http"
 
-type HttpClient interface {}
+type httpClient struct{}
 
-func Get(c *httpClient) {}
+func New() HttpClient {
+	client := &httpClient{}
+	return client
+}
+
+type HttpClient interface{}
+
+func (c *httpClient) Get(url string, headers http.Header) (*http.Response, error) {
+	return c.do(method: "GET", url, headers, nil)
+}
 
 func Post(c *httpClient) {}
 
