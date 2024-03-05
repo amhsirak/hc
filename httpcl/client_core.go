@@ -22,7 +22,7 @@ func (c *httpClient) getRequestHeaders() http.Header {
 	// Default | Common Headers For Request 
 	for header, value := range c.Headers {
 		if len(value) > 0 {
-			request.Header.Set(header, value[0])
+			result.Header.Set(header, value[0])
 		}
 	}
 
@@ -30,7 +30,7 @@ func (c *httpClient) getRequestHeaders() http.Header {
 	// headers is of type Header map[string][]string
 	for header, value := range headers {
 		if len(value) > 0 {
-			request.Header.Set(header, value[0])
+			result.Header.Set(header, value[0])
 		}
 	}
 	return result
