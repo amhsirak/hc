@@ -2,7 +2,9 @@ package httpcl
 
 import "net/http"
 
-type httpClient struct{}
+type httpClient struct{
+	Headers http.Header
+}
 
 func New() HttpClient {
 	client := &httpClient{}
