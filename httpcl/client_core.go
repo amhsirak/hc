@@ -13,6 +13,9 @@ func (c *httpClient) do(method string, url string, headers http.Header, body int
 		return nil, errors.New("failed to create a new request")
 	}
 
+	allHeaders := c.getRequestHeaders(headers)
+	request.Header = allHeaders
+
 	return client.Do(request)
 }
 
