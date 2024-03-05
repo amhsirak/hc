@@ -13,6 +13,10 @@ func (c *httpClient) do(method string, url string, headers http.Header, body int
 		return nil, errors.New("failed to create a new request")
 	}
 
+	return client.Do(request)
+}
+
+func (c *httpClient) getRequestHeaders() http.Header {
 	// *** Custom Header For Request ***
 	for header, value := range c.Headers {
 		if len(value) > 0 {
@@ -27,6 +31,4 @@ func (c *httpClient) do(method string, url string, headers http.Header, body int
 			request.Header.Set(header, value[0])
 		}
 	}
-
-	return client.Do(request)
 }
