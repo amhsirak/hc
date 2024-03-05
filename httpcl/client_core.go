@@ -13,8 +13,14 @@ func (c *httpClient) do(method string, url string, headers http.Header, body int
 		return nil, errors.New("failed to create a new request")
 	}
 
-	// *** custom header for request ***
-	
+	// *** Custom Header For Request ***
+	for header, value := range c.Headers {
+		if len(value) > 0 {
+			request.Header.Set(header, value[0])
+		}
+	}
+
+	// *** Custom Header For Request ***
 	// headers is of type Header map[string][]string
 	for header, value := range headers {
 		if len(value) > 0 {
