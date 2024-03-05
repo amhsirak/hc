@@ -16,7 +16,7 @@ func (c *httpClient) do(method string, url string, headers http.Header, body int
 	return client.Do(request)
 }
 
-func (c *httpClient) getRequestHeaders() http.Header {
+func (c *httpClient) getRequestHeaders(requestHeaders http.Header) http.Header {
 	result := make(http.Header)
 
 	// Default | Common Headers For Request 
@@ -28,7 +28,7 @@ func (c *httpClient) getRequestHeaders() http.Header {
 
 	// Custom Headers For Request
 	// headers is of type Header map[string][]string
-	for header, value := range headers {
+	for header, value := range requestHeaders {
 		if len(value) > 0 {
 			result.Header.Set(header, value[0])
 		}
