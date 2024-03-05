@@ -22,15 +22,15 @@ func (c *httpClient) Get(url string, headers http.Header) (*http.Response, error
 }
 
 func (c *httpClient) Post (url string, headers http.Header, body interface{}) (*http.Response, error) {
-	return c.do(http.MethodPost, url, headers, nil)
+	return c.do(http.MethodPost, url, headers, body)
 }
 
 func (c *httpClient) Put (url string, headers http.Header, body interface{}) (*http.Response, error) {
-	return c.do(http.MethodPut, url, headers, nil)
+	return c.do(http.MethodPut, url, headers, body)
 }
 
 func (c *httpClient) Patch (url string, headers http.Header, body interface{}) (*http.Response, error) {
-	return c.do(http.MethodPatch, url, headers, nil)
+	return c.do(http.MethodPatch, url, headers, body)
 } 
 
 func (c *httpClient) Delete(url string, headers http.Header) (*http.Response, error) {
