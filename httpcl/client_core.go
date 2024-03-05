@@ -17,14 +17,14 @@ func (c *httpClient) do(method string, url string, headers http.Header, body int
 }
 
 func (c *httpClient) getRequestHeaders() http.Header {
-	// *** Custom Header For Request ***
+	// Default | Common Headers For Request 
 	for header, value := range c.Headers {
 		if len(value) > 0 {
 			request.Header.Set(header, value[0])
 		}
 	}
 
-	// *** Custom Header For Request ***
+	// Custom Headers For Request
 	// headers is of type Header map[string][]string
 	for header, value := range headers {
 		if len(value) > 0 {
