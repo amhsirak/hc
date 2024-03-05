@@ -8,7 +8,10 @@ import (
 func main() {
 	client := httpcl.New()
 
-	response, err := client.Get("https://api.github.com", nil)
+	headers := make(http.Header)
+	headers.Set("Authorization", "Bearer ABC-123")
+
+	response, err := client.Get("https://api.github.com", headers)
 
 	if err != nil {
 		panic(err)
