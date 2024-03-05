@@ -22,14 +22,14 @@ func (c *httpClient) do(method string, url string, headers http.Header, body int
 func (c *httpClient) getRequestHeaders(requestHeaders http.Header) http.Header {
 	result := make(http.Header)
 
-	// default and common headers for request 
+	// add default and common headers from the HTTP client instance
 	for header, value := range c.Headers {
 		if len(value) > 0 {
 			result.Set(header, value[0])
 		}
 	}
 
-	// custom headers for request
+	// add custom headers from the request
 	// requestHeaders is of type Header map[string][]string
 	for header, value := range requestHeaders {
 		if len(value) > 0 {
