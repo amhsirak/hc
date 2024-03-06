@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-// flow of tests: initalization, execution, validation
+// flow of tests: initalization*, execution, validation
 
 func TestGetRequestHeaders(t *testing.T) {
 	client := httpClient{}
