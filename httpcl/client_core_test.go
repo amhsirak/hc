@@ -79,4 +79,18 @@ func TestGetRequestBody(t *testing.T) {
 		}
 	})
 
+	t.Run("BodyWithJsonAsDefault", func(t *testing.T) {
+		requestBody := []string{"one", "two"}
+
+		body, err := client.getRequestBody("", requestBody)
+
+		if err != nil {
+			t.Error("no error expected when marshaling slice as json")
+		}
+
+		if string(body) != `["one","two"]` {
+			t.Error("invalid json body obtained")
+		}
+	})
+
 }
