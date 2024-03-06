@@ -10,7 +10,16 @@ func (c *httpClient) getRequestBody(contentType string, body interface{}) ([]byt
 	if body == nil {
 		return nil, nil
 	}
-
+	switch contentType {
+	case "application/json":
+		return json.Marshal(body)
+	
+	case "application/xml":
+		return xml.Marshal(body)
+	
+	default:
+		return json.Marshal(body)
+	}
 }
 
 func (c *httpClient) do(method string, url string, headers http.Header, body interface{}) (*http.Response, error) {
