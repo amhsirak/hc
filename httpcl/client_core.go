@@ -1,10 +1,11 @@
 package httpcl
 
 import (
-	"errors"
-	"net/http"
 	"encoding/json"
 	"encoding/xml"
+	"errors"
+	"net/http"
+	"strings"
 )
 
 // for the request body, we need to convert the interface to io.Reader
@@ -12,7 +13,7 @@ func (c *httpClient) getRequestBody(contentType string, body interface{}) ([]byt
 	if body == nil {
 		return nil, nil
 	}
-	switch contentType {
+	switch strings.ToLower(contentType) {
 	case "application/json":
 		return json.Marshal(body)
 	
