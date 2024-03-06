@@ -1,6 +1,7 @@
 package httpcl
 
 import (
+	"bytes"
 	"encoding/json"
 	"encoding/xml"
 	"errors"
@@ -32,7 +33,7 @@ func (c *httpClient) do(method string, url string, headers http.Header, body int
 
 	requestBody, err := c.getRequestBody(allHeaders.Get("Content-Type"), body)
 
-	request, err := http.NewRequest(method, url, nil)
+	request, err := http.NewRequest(method, url, bytes.NewBuffer(requestBody))
 	if err != nil {
 		return nil, errors.New("failed to create a new request")
 	}
