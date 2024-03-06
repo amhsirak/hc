@@ -6,7 +6,7 @@ import (
 )
 
 // for the request body, we need to convert the interface to io.Reader
-func (c *httpClient) getRequestBody(body interface{}) ([]byte, error) {
+func (c *httpClient) getRequestBody(contentType string, body interface{}) ([]byte, error) {
 	if body == nil {
 		return nil, nil
 	}
@@ -17,6 +17,8 @@ func (c *httpClient) do(method string, url string, headers http.Header, body int
 	client := http.Client{}
 
 	allHeaders := c.getRequestHeaders(headers)
+
+	requestBody, err := c.getRequestBody(allHeaders.Get("Content-Type", body))
 
 	request, err := http.NewRequest(method, url, nil)
 	if err != nil {
