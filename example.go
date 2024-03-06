@@ -7,6 +7,10 @@ import (
 )
 
 func main() {
+	getUrls()
+}
+
+func getUrls() {
 	client := httpcl.New()
 
 	headers := make(http.Header)
