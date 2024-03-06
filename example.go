@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/karishmashuklaa/hc/httpcl"
 	"net/http"
-	"io/ioutil"
+	"io"
 )
 
 var (
@@ -34,6 +34,6 @@ func getUrls() {
 
 	fmt.Println(response.StatusCode)
 
-	bytes, _ := ioutil.ReadAll(response.Body)
+	bytes, _ := io.ReadAll(response.Body)
 	fmt.Println(string(bytes))
 }
