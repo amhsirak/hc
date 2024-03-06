@@ -23,14 +23,14 @@ func TestGetRequestHeaders(t *testing.T) {
 	}
 
 	if finalHeaders.Get("X-Request-Id") != "ABC-999" {
-		t.Error("expected 'ABC-999', got ", finalHeaders.Get("X-Request-Id"))
+		t.Error("invalid request id, expected 'ABC-999', got ", finalHeaders.Get("X-Request-Id"))
 	}
 
 	if finalHeaders.Get("Content-Type") != "application/json" {
-		t.Error("expected 'application/json', got ", finalHeaders.Get("Content-Type"))
+		t.Error("invalid content type, expected 'application/json', got ", finalHeaders.Get("Content-Type"))
 	}
 
 	if finalHeaders.Get("User-Agent") != "test-httpcl" {
-		t.Error("expected 'test-httpcl', got ", finalHeaders.Get("Content-Type"))
+		t.Error("invalid user agent type, expected 'test-httpcl', got ", finalHeaders.Get("Content-Type"))
 	}
 }
