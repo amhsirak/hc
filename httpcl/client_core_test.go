@@ -34,3 +34,21 @@ func TestGetRequestHeaders(t *testing.T) {
 		t.Error("invalid user agent type, expected 'test-httpcl', got ", finalHeaders.Get("Content-Type"))
 	}
 }
+
+func TestGetRequestBody(t *testing.T) {
+	client := httpClient{}
+
+	t.Run("NoBodyNilResponse", func(t *testing.T) {
+		
+		body, err := client.getRequestBody("", nil)
+
+		if err != nil {
+			t.Error("no error expected when passing a nil body")
+		}
+
+		if body != nil {
+			t.Error("no body expected when passing a nil body")
+		}
+	})
+
+}
