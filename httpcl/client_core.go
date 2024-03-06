@@ -17,10 +17,10 @@ func (c *httpClient) getRequestBody(contentType string, body interface{}) ([]byt
 	switch strings.ToLower(contentType) {
 	case "application/json":
 		return json.Marshal(body)
-	
+
 	case "application/xml":
 		return xml.Marshal(body)
-	
+
 	default:
 		return json.Marshal(body)
 	}
