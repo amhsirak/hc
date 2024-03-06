@@ -32,6 +32,9 @@ func (c *httpClient) do(method string, url string, headers http.Header, body int
 	allHeaders := c.getRequestHeaders(headers)
 
 	requestBody, err := c.getRequestBody(allHeaders.Get("Content-Type"), body)
+	if err != nil {
+		return nil, errors.New("failed to get request body")
+	}
 
 	request, err := http.NewRequest(method, url, bytes.NewBuffer(requestBody))
 	if err != nil {
