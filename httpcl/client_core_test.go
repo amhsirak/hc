@@ -19,6 +19,18 @@ func TestGetRequestHeaders(t *testing.T) {
 	finalHeaders := client.getRequestHeaders(requestHeaders)
 
 	if len (finalHeaders) != 3 {
-		t.Error("Expected 3 headers, got ", len(finalHeaders))
+		t.Error("expected 3 headers, got ", len(finalHeaders))
+	}
+
+	if finalHeaders.Get("X-Request-Id") != "ABC-999" {
+		t.Error("expected 'ABC-999', got ", finalHeaders.Get("X-Request-Id"))
+	}
+
+	if finalHeaders.Get("Content-Type") != "application/json" {
+		t.Error("expected 'application/json', got ", finalHeaders.Get("Content-Type"))
+	}
+
+	if finalHeaders.Get("User-Agent") != "test-httpcl" {
+		t.Error("expected 'test-httpcl', got ", finalHeaders.Get("Content-Type"))
 	}
 }
