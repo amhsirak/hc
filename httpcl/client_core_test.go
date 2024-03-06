@@ -18,7 +18,7 @@ func TestGetRequestHeaders(t *testing.T) {
 	requestHeaders.Set("X-Request-Id", "ABC-999")
 	finalHeaders := client.getRequestHeaders(requestHeaders)
 
-	if len (finalHeaders) != 3 {
+	if len(finalHeaders) != 3 {
 		t.Error("expected 3 headers, got ", len(finalHeaders))
 	}
 
