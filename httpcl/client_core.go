@@ -10,17 +10,19 @@ func (c *httpClient) getRequestBody(body interface{}) ([]byte, error) {
 	if body == nil {
 		return nil, nil
 	}
+
 }
 
 func (c *httpClient) do(method string, url string, headers http.Header, body interface{}) (*http.Response, error) {
 	client := http.Client{}
+
+	allHeaders := c.getRequestHeaders(headers)
 
 	request, err := http.NewRequest(method, url, nil)
 	if err != nil {
 		return nil, errors.New("failed to create a new request")
 	}
 
-	allHeaders := c.getRequestHeaders(headers)
 	request.Header = allHeaders
 
 	return client.Do(request)
