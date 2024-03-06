@@ -30,7 +30,7 @@ func (c *httpClient) do(method string, url string, headers http.Header, body int
 
 	allHeaders := c.getRequestHeaders(headers)
 
-	requestBody, err := c.getRequestBody(allHeaders.Get("Content-Type", body))
+	requestBody, err := c.getRequestBody(allHeaders.Get("Content-Type"), body)
 
 	request, err := http.NewRequest(method, url, nil)
 	if err != nil {
