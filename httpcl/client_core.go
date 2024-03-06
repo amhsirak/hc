@@ -3,6 +3,8 @@ package httpcl
 import (
 	"errors"
 	"net/http"
+	"json"
+	"xml"
 )
 
 // for the request body, we need to convert the interface to io.Reader
