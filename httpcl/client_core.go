@@ -5,6 +5,13 @@ import (
 	"net/http"
 )
 
+// for the request body, we need to convert the interface to io.Reader
+func (c *httpClient) getRequestBody(body interface{}) ([]byte, error) {
+	if body == nil {
+		return nil, nil
+	}
+}
+
 func (c *httpClient) do(method string, url string, headers http.Header, body interface{}) (*http.Response, error) {
 	client := http.Client{}
 
