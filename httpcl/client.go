@@ -11,6 +11,7 @@ func New() HttpClient {
 	httpClient := &httpClient{
 		client: &http.Client{},
 	}
+	return httpClient
 }
 
 type HttpClient interface{
