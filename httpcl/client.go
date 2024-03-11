@@ -3,12 +3,14 @@ package httpcl
 import "net/http"
 
 type httpClient struct{
+	client *http.Client
 	Headers http.Header
 }
 
 func New() HttpClient {
-	client := &httpClient{}
-	return client
+	httpClient := &httpClient{
+		client: &http.Client{},
+	}
 }
 
 type HttpClient interface{
