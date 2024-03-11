@@ -8,7 +8,9 @@ type httpClient struct{
 }
 
 func New() HttpClient {
-	httpClient := &httpClient{}
+	httpClient := &httpClient{
+		client: &http.Client{},
+	}
 	return httpClient
 }
 
