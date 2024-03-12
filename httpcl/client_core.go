@@ -27,8 +27,6 @@ func (c *httpClient) getRequestBody(contentType string, body interface{}) ([]byt
 }
 
 func (c *httpClient) do(method string, url string, headers http.Header, body interface{}) (*http.Response, error) {
-	client := http.Client{}
-
 	allHeaders := c.getRequestHeaders(headers)
 
 	requestBody, err := c.getRequestBody(allHeaders.Get("Content-Type"), body)
@@ -43,7 +41,7 @@ func (c *httpClient) do(method string, url string, headers http.Header, body int
 
 	request.Header = allHeaders
 
-	return client.Do(request)
+	return c.client.Do(request)
 }
 
 func (c *httpClient) getRequestHeaders(requestHeaders http.Header) http.Header {
