@@ -11,6 +11,7 @@ func New() HttpClient {
 	httpClient := &httpClient{
 		Transport: &http.Transport{
 			MaxIdleConnsPerHost: 10,
+			ResponseHeaderTimeout: 5 * time.Second,
 		},
 	}
 	return httpClient
