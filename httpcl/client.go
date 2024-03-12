@@ -9,7 +9,9 @@ type httpClient struct{
 
 func New() HttpClient {
 	httpClient := &httpClient{
-		client: &http.Client{},
+		Transport: &http.Transport{
+			MaxIdleConnsPerHost: 10,
+		},
 	}
 	return httpClient
 }
